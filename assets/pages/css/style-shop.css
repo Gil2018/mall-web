@@ -1487,3 +1487,29 @@ label.error,label.tip{
 label.tip{
     color:blue;
 }
+/* table */
+#address-table{
+	margin-top: 20px;
+	border: none;
+}
+.address-default{
+	display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ff5000;
+    border-radius: 3px;
+    background: #ffd6cc;
+    color: #f30;
+}
+.address-setDefault{
+	cursor: pointer;
+}
+.address-setDefault:hover{
+	color: #ff5000;
+}
+#address-table tbody tr td, #address-table thead tr th{
+	vertical-align: middle;
+	text-align: center;
+}

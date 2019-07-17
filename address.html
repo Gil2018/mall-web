@@ -72,7 +72,7 @@
     <div class="main">
       <div class="container">
         <!-- address -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#address-form">新增</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#address-form" onclick="handleCreate()">新增</button>
         <div id="address-table"></div>
         <!-- //address -->
       </div>
@@ -80,18 +80,19 @@
 
     <div class="footer"></div>
 
-    <!-- Modal -->
+    <!-- 收货地址Modal -->
     <div class="modal fade" id="address-form" tabindex="-1" role="dialog" aria-labelledby="addressFormLabel">
       <div class="modal-dialog" role="document" style="width: 660px;">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="addressFormLabel">Modal title</h4>
+            <h4 class="modal-title" id="addressFormLabel"></h4>
           </div>
           <div class="modal-body" style="padding: 15px 30px;">
             <div class="fuzzy_query">
-              <input id="keywords" type="text" class="form-control input__inner" placeholder="请输入关键词自动匹配地址(必选)" list="key_list">
+              <input id="keywords" type="text" class="form-control input__inner" placeholder="请输入关键词自动匹配地址(必选)"
+                list="key_list">
               <button type="button" id="search_key" class="btn btn-primary" style="display: none;">search</button>
               <datalist id="key_list">
               </datalist>
@@ -103,49 +104,51 @@
                   <input type="text" class="form-control" id="fullName" name="fullName" placeholder="长度不超过25个字符">
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="gender" class="col-sm-3 control-label">性别</label>
                 <div class="col-sm-9">
                   <select class="form-control" id="gender" name="gender">
-                    <option>未知</option>
-                    <option>男</option>
-                    <option>女</option>
+                    <option label="未知" value="0"></option>
+                    <option label="男" value="1"></option>
+                    <option label="女" value="2"></option>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="form-group">
                 <label for="mobile" class="col-sm-3 control-label">联系电话</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="mobile" name="mobile" placeholder="请输入联系电话">
+                  <input type="number" class="form-control" id="mobile" name="mobile" placeholder="请输入联系电话">
                 </div>
               </div>
               <div class="form-group">
                 <label for="addressName" class="col-sm-3 control-label">收货地址</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" rows="2" id="addressName" name="addressName" placeholder="请输入收货地址"></textarea>
+                  <textarea class="form-control" rows="2" id="addressName" name="addressName"
+                    placeholder="请输入收货地址"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="addressDetail" class="col-sm-3 control-label">详细地址</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" rows="2" id="addressDetail" name="addressDetail" placeholder="请输入详细地址"></textarea>
+                  <textarea class="form-control" rows="2" id="addressDetail" name="addressDetail"
+                    placeholder="请输入详细地址"></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label for="gender" class="col-sm-3 control-label">所在城市</label>
+                <label for="distpicker" class="col-sm-3 control-label">所在城市</label>
                 <div class="col-sm-9">
                   <div data-toggle="distpicker" id="distpicker">
                     <div class="col-sm-4">
                       <label class="sr-only" for="province">Province</label>
-                      <select class="form-control" id="province" ></select>
+                      <select class="form-control" id="province"></select>
                     </div>
                     <div class="col-sm-4">
                       <label class="sr-only" for="city">City</label>
-                      <select class="form-control" id="city" ></select>
+                      <select class="form-control" id="city"></select>
                     </div>
                     <div class="col-sm-4">
                       <label class="sr-only" for="district">District</label>
-                      <select class="form-control" id="district" ></select>
+                      <select class="form-control" id="district"></select>
                     </div>
                   </div>
                 </div>
@@ -164,7 +167,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary" id="address-save" onclick="handleCreate(this)">保存</button>
+            <button type="button" class="btn btn-primary" id="address-save" onclick="createData(this)">保存</button>
           </div>
 
         </div>
@@ -224,7 +227,7 @@
         city: '厦门市',
         district: '思明区'
       });
-      $('#address-form').modal()
+      // $('#address-form').modal()
       //点击事件
       $('#search_key').on('click', function () {
         var keyWord = $('#keywords').val();
@@ -302,6 +305,7 @@
         }
       }
       renderFruits();
+
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
   </body>
