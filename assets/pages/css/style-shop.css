@@ -1513,3 +1513,38 @@ label.tip{
 	vertical-align: middle;
 	text-align: center;
 }
+/* order */
+.order-payInfo{
+	text-align: right;
+	margin: 20px 0 10px;
+}
+.payInfo-wrapper{
+    display: inline-block;
+	border: 1px solid #f40;
+}
+.payInfo-wrapper .payInfo-shadow {
+    border: 3px solid #fff0e8;
+    min-width: 230px;
+    padding: 10px 10px 10px 20px;
+}
+.order-realPay .realPay-title {
+    font-weight: 700;
+    color: #333;
+}
+.order-realPay .order-price {
+    font-size: 26px;
+    margin-right: 4px;
+    color: #999;
+}
+.order-realPay .realPay-price {
+    color: #f40;
+    font: 700 26px tahoma;
+}
+.order-confirmAddr {
+    line-height: 1.6;
+    margin-top: 10px;
+}
+.order-confirmAddr .confirmAddr-title {
+    font-weight: 700;
+    color: #333;
+}

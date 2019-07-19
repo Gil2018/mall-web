@@ -14,7 +14,7 @@ if (userInfo) {
 } else {
     $('.additional-nav .list-inline .login_btn').show()
     $('#top-cart').html(`<div class="nocart top-cart-info">
-                        <a href="javascript:void(0);" class="top-cart-info-count">请登录</a>
+                        <a href="/login.html" class="top-cart-info-count">请登录</a>
                     </div>
                 <i class="fa fa-shopping-cart"></i>`)
 }

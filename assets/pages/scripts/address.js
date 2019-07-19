@@ -102,6 +102,15 @@ function defaultFormatter(value, row, index) {
     return result;
 }
 
+//操作栏的格式化
+function actionFormatter(value, row, index) {
+    var id = value;
+    var result = "";
+    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"handleUpdate('" + row.id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"handleDelete('" + row.id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
+    return result;
+}
+
 // 设置为默认地址
 function handleSetDefault(e) {
     let row = JSON.parse(e.children[0].innerText)
@@ -110,15 +119,6 @@ function handleSetDefault(e) {
         ShowNotice(res.errmsg, '设置成功', 'success', 2000, true)
         $('#address-table').bootstrapTable('refresh');
     })
-}
-
-//操作栏的格式化
-function actionFormatter(value, row, index) {
-    var id = value;
-    var result = "";
-    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"handleUpdate('" + row.id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"handleDelete('" + row.id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
-    return result;
 }
 
 InitMainTable()

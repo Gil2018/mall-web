@@ -1,3 +1,6 @@
+getCartList()
+getAddressList()
+
 var Checkout = function () {
   return {
     init: function () {
@@ -26,7 +29,7 @@ function getAddressList() {
             <i class="fa fa-location-arrow marker"></i>
             <span class="marker-tip">寄送至</span>
           </div>
-          <label for="addressInput" class="addressInfo" onclick="switchoverAddress(this)">
+          <label for="addressInput" class="addressInfo" onclick="switchoverAddress(this)" data='${JSON.stringify(item)}'>
             <span class="user-address">
               ${item.province} ${item.city} ${item.district} ${item.addressDetail} ${item.addressName} ( ${item.name} 收 )
               <em>${item.mobile}</em>
@@ -34,10 +37,13 @@ function getAddressList() {
           </label>
         </div>
       </li>`
+        $('.order-confirmAddr .confirmAddr-addr .confirmAddr-addr-bd').text(`${item.province} ${item.city} ${item.district} ${item.addressDetail} ${item.addressName}`)
+        $('.order-confirmAddr .confirmAddr-addr-user .confirmAddr-addr-bd').text(`${item.name} ${item.mobile}`)
+        console.log($('.order-confirmAddr .confirmAddr-addr .confirmAddr-addr-bd').text())
       } else {
         temp += `<li class="address-wrap">
         <div class="addressBox">
-          <label for="addressInput" class="addressInfo" onclick="switchoverAddress(this)">
+          <label for="addressInput" class="addressInfo" onclick="switchoverAddress(this)" data='${JSON.stringify(item)}'>
             <span class="user-address">
               ${item.province} ${item.city} ${item.district} ${item.addressDetail} ${item.addressName} ( ${item.name} 收 )
               <em>${item.mobile}</em>
@@ -67,6 +73,7 @@ function switchoverAddress(e) {
           btnClass: 'btn-blue',
           keys: ['enter', 'shift'],
           action: function () {
+            let data = JSON.parse($(e).attr('data'))
             $('.address-wrap').attr('class', 'address-wrap')
             $(e).parent().parent().addClass('default selected')
             $('.address-wrap .addressBox .marker-par').remove()
@@ -74,6 +81,8 @@ function switchoverAddress(e) {
             <i class="fa fa-location-arrow marker"></i>
             <span class="marker-tip">寄送至</span>
           </div>`)
+            $('.order-confirmAddr .confirmAddr-addr .confirmAddr-addr-bd').text(`${data.province} ${data.city} ${data.district} ${data.addressDetail} ${data.addressName}`)
+            $('.order-confirmAddr .confirmAddr-addr-user .confirmAddr-addr-bd').text(`${data.name} ${data.mobile}`)
             // console.log($(e).parent().parent().html())
 
             // $('.address-list label.addressInfo').attr('class', '')
@@ -105,5 +114,3 @@ function changeNumber(e) {
   $('.shopping-total-price .price').html(`<span>¥</span>${allTotal}`)
 }
 
-getAddressList()
-getCartList()
