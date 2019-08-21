@@ -84,7 +84,7 @@
         <div class="row margin-bottom-40">
           <!-- BEGIN SALE PRODUCT -->
           <div class="col-md-12 sale-product">
-            <h2>新到货</h2>
+            <h2>NEW ARRIVALS</h2>
             <div class="owl-carousel owl-carousel5 owl-theme owl-loaded" id="owl-carousel5">
 
             </div>
@@ -123,43 +123,43 @@
 
     <script type="text/template" id="banner">
       <!-- Indicators -->
-    <ol class="carousel-indicators">
-      {{each bannerList banner i}}
-      <li data-target="#carousel-example-generic" data-slide-to="{{i}}"></li>
-      {{/each}}
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <!-- First slide -->
-      {{each bannerList banner i}}
-      <div class="item"
-        style="background: url({{banner.url}});background-size: cover;background-position: center center;">
-        <div class="container">
-          <!-- <div class="carousel-position-four text-center">
+      <ol class="carousel-indicators">
+        {{each bannerList banner i}}
+        <li data-target="#carousel-example-generic" data-slide-to="{{i}}"></li>
+        {{/each}}
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <!-- First slide -->
+        {{each bannerList banner i}}
+        <div class="item"
+          style="background: url({{banner.url}});background-size: cover;background-position: center center;">
+          <div class="container">
+            <!-- <div class="carousel-position-four text-center">
                 <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase"
                   data-animation="animated fadeInDown">
                   <span class="color-red-v2">{{banner.name}}</span>
                 </h2>
                 <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">{{banner.content}}</p>
               </div> -->
+          </div>
         </div>
+        {{/each}}
       </div>
-      {{/each}}
-    </div>
 
-    <!-- Controls -->
-    <a class="left carousel-control carousel-control-shop" href="#carousel-example-generic" role="button"
-      data-slide="prev">
-      <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </a>
-    <a class="right carousel-control carousel-control-shop" href="#carousel-example-generic" role="button"
-      data-slide="next">
-      <i class="fa fa-angle-right" aria-hidden="true"></i>
-    </a>
+      <!-- Controls -->
+      <a class="left carousel-control carousel-control-shop" href="#carousel-example-generic" role="button"
+        data-slide="prev">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </a>
+      <a class="right carousel-control carousel-control-shop" href="#carousel-example-generic" role="button"
+        data-slide="next">
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </a>
     </script>
 
     <script type="text/template" id="product_item">
-          {{each list item i}}
+      {{each list item i}}
           <!-- PRODUCT ITEM START -->
               <div>
                   <div class="product-item">
@@ -189,86 +189,87 @@
   </script>
 
     <script type="text/template" id="product_detail">
-    <!-- PRODUCT ITEM START -->
-    <div class="product-page product-pop-up">
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-3">
-          <div class="product-main-image">
-            <img src="{{data.picUrl}}" alt="{{data.name}}" class="img-responsive">
-          </div>
-          <div class="product-other-images">
-            {{each data.products as item i}}
-            <a href="javascript:void(0);" class="active" onclick="changeImage(this)"><img alt="{{data.name}}"
-                src="{{item.url}}"></a>
-            {{/each}}
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-9">
-          <h2>{{data.name}}</h2>
-          <div class="price-availability-block clearfix">
-            <div class="price">
-              <strong><span>¥</span>{{data.retailPrice}}</strong>
-              <!-- <em>¥<span>62.00</span></em> -->
+      <!-- PRODUCT ITEM START -->
+      <div class="product-page product-pop-up">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-3">
+            <div class="product-main-image">
+              <img src="{{data.picUrl}}" alt="{{data.name}}" class="img-responsive">
             </div>
-            <div class="availability">
-              可用性: <strong>有现货 </strong>
+            <div class="product-other-images">
+              {{each data.products as item i}}
+              <a href="javascript:void(0);" class="active" onclick="changeImage(this)"><img alt="{{data.name}}"
+                  src="{{item.url}}"></a>
+              {{/each}}
             </div>
           </div>
-          <div class="description">
-            <p>{{data.brief}}</p>
-          </div>
-          <div class="product-page-options">
-            {{each data.newspecifications as item i}}
-            <div class="pull-left">
-              <label class="control-label">{{item.specification}}:</label>
-              <select class="form-control input-sm" name="{{item.specification}}" onchange="changeSpec(this)"
-                data="{{data}}">
-                {{each item.valueArr as value i}}
-                <option>{{value}}</option>
-                {{/each}}
-              </select>
+          <div class="col-md-6 col-sm-6 col-xs-9">
+            <h2>{{data.name}}</h2>
+            <div class="price-availability-block clearfix">
+              <div class="price">
+                <strong><span>¥</span>{{data.retailPrice}}</strong>
+                <!-- <em>¥<span>62.00</span></em> -->
+              </div>
+              <div class="availability">
+                可用性: <strong>有现货 </strong>
+              </div>
             </div>
-            {{/each}}
-          </div>
-          <div class="product-page-cart">
-            <div class="product-quantity">
-              <input id="product-quantity" type="number" value="1" oninput="if(value<0)value=0" name="product-quantity"
-                class="form-control input-sm">
+            <div class="description">
+              <p>{{data.brief}}</p>
             </div>
-            <button class="btn btn-primary" type="submit" onclick="add2Cart(this)">加入购物车<span
-              style="display: none">{{data}}</span></button>
-            <a href="item.html?product_id={{data.id}}" class="btn btn-default">更多详情</a>
+            <div class="product-page-options">
+              {{each data.newspecifications as item i}}
+              <div class="pull-left">
+                <label class="control-label">{{item.specification}}:</label>
+                <select class="form-control input-sm" name="{{item.specification}}" onchange="changeSpec(this)"
+                  data="{{data}}">
+                  {{each item.valueArr as value i}}
+                  <option>{{value}}</option>
+                  {{/each}}
+                </select>
+              </div>
+              {{/each}}
+            </div>
+            <div class="product-page-cart">
+              <div class="product-quantity">
+                <input id="product-quantity" type="number" value="1" oninput="if(value<0)value=0"
+                  name="product-quantity"
+                  class="form-control input-sm">
+              </div>
+              <button class="btn btn-primary" type="submit" onclick="add2Cart(this)">加入购物车<span
+                  style="display: none">{{data}}</span></button>
+              <a href="item.html?product_id={{data.id}}" class="btn btn-default">更多详情</a>
+            </div>
           </div>
-        </div>
 
-        <div class="sticker sticker-sale"></div>
+          <div class="sticker sticker-sale"></div>
+        </div>
       </div>
-    </div>
-    <!-- PRODUCT ITEM END -->
+      <!-- PRODUCT ITEM END -->
     </script>
 
     <script type="text/template" id="category_menu">
-          <!-- END TOP SEARCH -->
-    {{each categoryList item i}}
-    {{if item.childList.length > 0}}
-    <li class="list-group-item clearfix dropdown">
-      <a href="/product-list.html">
-        <i class="fa fa-angle-right"></i>
-        {{item.name}}
-      </a>
-      <ul class="dropdown-menu">
-        {{each item.childList value i}}
-        <li class="list-group-item dropdown clearfix">
-          <a href="/product-list.html"><i class="fa fa-angle-right"></i> {{value.name}} </a>
-        </li>
-      </ul>
+      <!-- END TOP SEARCH -->
+      {{each categoryList item i}}
+      {{if item.childList.length > 0}}
+      <li class="list-group-item clearfix dropdown">
+        <a href="/product-list.html">
+          <i class="fa fa-angle-right"></i>
+          {{item.name}}
+        </a>
+        <ul class="dropdown-menu">
+          {{each item.childList value i}}
+          <li class="list-group-item dropdown clearfix">
+            <a href="/product-list.html"><i class="fa fa-angle-right"></i> {{value.name}} </a>
+          </li>
+        </ul>
+        {{/each}}
+      </li>
+      {{else}}
+      <li class="list-group-item clearfix"><a href="product-list.html"><i class="fa fa-angle-right"></i>
+          {{item.name}}</a></li>
+      {{/if}}
       {{/each}}
-    </li>
-    {{else}}
-    <li class="list-group-item clearfix"><a href="product-list.html"><i class="fa fa-angle-right"></i>
-        {{item.name}}</a></li>
-    {{/if}}
-    {{/each}}
     </script>
 
     <!-- Load javascripts at bottom, this will reduce page load time -->
@@ -305,8 +306,8 @@
       });
     </script>
     <script>
-      $('.header').load('./header.html', function (responseTxt, statusTxt, xhr) { })
-      $('.footer').load('./footer.html', function (responseTxt, statusTxt, xhr) { })
+      $('.header').load('./header.html', function (responseTxt, statusTxt, xhr) {})
+      $('.footer').load('./footer.html', function (responseTxt, statusTxt, xhr) {})
 
       // function viewDetail(e) {
       //   var product_id = e.children[0].innerText
@@ -356,7 +357,6 @@
       //     getShoppingCart($("#top-cart"), "shopping_cart")
       //   })
       // }
-
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
     <script src="./assets/pages/scripts/index.js"></script>

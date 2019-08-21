@@ -6,11 +6,11 @@ if (userInfo) {
     $('.additional-nav .list-inline .langs-block').show()
     $('#top-cart .nocart').hide()
     $('#top-cart .top-cart-info').show()
-    let current = userInfo.realname
+    let current = `<a href="account.html" class="current">${userInfo.realname}</a>`
     if (!current) {
-        current = '未实名'
+        current = `<a href="account.html" class="current">未实名</a>`
     }
-    $('.additional-nav .list-inline .langs-block .current').html(current)
+    $('.additional-nav .list-inline .langs-block .langs-block-others-wrapper .username').html(current)
 } else {
     $('.additional-nav .list-inline .login_btn').show()
     $('#top-cart').html(`<div class="nocart top-cart-info">

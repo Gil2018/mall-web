@@ -345,6 +345,7 @@ Pre-Header and pre-header elements
 	padding-left: 11px;
 	padding-right: 15px;
 	border-right: solid 1px #d8d8d8;
+	height: 15px;
 }
 .pre-header li:last-child {
 	border: none;
@@ -354,6 +355,9 @@ Pre-Header and pre-header elements
 }
 .additional-nav li:last-child {
 	padding-right: 0;
+}
+.additional-nav li a img {
+	width: 20px;
 }
 .pre-header .fa {
 	margin-right: 4px;
@@ -394,6 +398,12 @@ Pre-Header and pre-header elements
 	transition: opacity .3s ease-in-out;
 	-moz-transition: opacity .3s ease-in-out;
 	-webkit-transition: opacity .3s ease-in-out;
+}
+.langs-block-others .username {
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #c9c9c9;
+	cursor: pointer;
 }
 .langs-block-others:after {
 	top: -8px;
@@ -1435,7 +1445,7 @@ Pre-Footer and pre-footer elements
 ***/
 .pre-footer {
 	background: #313030;
-	color: #b0b0b0;
+	color: #fff;
 }
 .pre-footer .container {
 	padding-top: 45px;
@@ -1484,6 +1494,14 @@ Pre-Footer and pre-footer elements
 }
 .pre-footer-col {
 	padding-bottom: 22px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pre-footer-col img {
+	color: #fff;
+	margin-right: 10px;
+	width: 30px;
 }
 .pre-footer .top-line {
 	border-top: solid 1px #535353;
