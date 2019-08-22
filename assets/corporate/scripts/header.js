@@ -1,5 +1,6 @@
 
 const pathname = window.location.pathname;
+// 在 sessionStorage 获取用户信息
 const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
 if (userInfo) {
     $('.additional-nav .list-inline .login_btn').hide()
@@ -13,6 +14,7 @@ if (userInfo) {
     $('.additional-nav .list-inline .langs-block .langs-block-others-wrapper .username').html(current)
 } else {
     $('.additional-nav .list-inline .login_btn').show()
+    $('.additional-nav .list-inline .langs-block').hide()
     $('#top-cart').html(`<div class="nocart top-cart-info">
                         <a href="/login.html" class="top-cart-info-count">请登录</a>
                     </div>
@@ -92,6 +94,7 @@ function delCommodity(e) {
     });
 }
 
+// 判断是否在登录页
 if (pathname !== '/login.html') {
     getShoppingCart($("#top-cart"), "shopping_cart")
     getHeadCategory()

@@ -122,6 +122,18 @@ function changeSpec(e) {
 function getRendom(num, ele) {
   ajaxPromise({ url: `${baseUrl}/wx/goods/rendom`, data: { number: num } }).then(res => {
     // 将数据渲染到页面
+    res.data[0].picUrl = './assets/pages/img/products/product1.png'
+    res.data[1].picUrl = './assets/pages/img/products/product2.png'
+    res.data[2].picUrl = './assets/pages/img/products/product3.png'
+    if (res.data.length === 5) {
+      res.data[3].picUrl = './assets/pages/img/products/product4.png'
+      res.data[4].picUrl = './assets/pages/img/products/product1.png'
+    }
+    res.data.forEach(item => {
+      if (item.id === 5) {
+        item.name = '秋季新款卫衣'
+      }
+    })
     ele.html(template("product_item", { list: res.data }))
   })
 }
@@ -156,16 +168,35 @@ function delCommodity(e) {
 // 侧边栏分类菜单
 function getCategoryList() {
   ajaxPromise({ url: `${baseUrl}/wx/category/list` }).then(res => {
-      // 将数据渲染到页面
-      $("#sidebar-menu").html(template("category_menu", { categoryList: res.data }))
+    // 将数据渲染到页面
+    res.data = [{
+      name: '爆款榜单',
+      childList: ''
+    },{
+      name: '上衣T恤',
+      childList: ''
+    },{
+      name: '长裤/短裤',
+      childList: ''
+    },{
+      name: '休闲卫衣',
+      childList: ''
+    },{
+      name: '外套夹克',
+      childList: ''
+    },{
+      name: '配件',
+      childList: ''
+    }]
+    $("#sidebar-menu").html(template("category_menu", { categoryList: res.data }))
   })
 }
 
 // 侧边栏热销商品
 function getSidebarItem() {
   ajaxPromise({ url: `${baseUrl}/wx/goods/rendom`, data: { number: 3 } }).then(res => {
-      // 将数据渲染到页面
-      $('#sidebar-products').html(template("sidebar3", { list: res.data }))
+    // 将数据渲染到页面
+    $('#sidebar-products').html(template("sidebar3", { list: res.data }))
   })
 }
 

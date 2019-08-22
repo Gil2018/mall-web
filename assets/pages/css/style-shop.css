@@ -1252,12 +1252,24 @@ Shop Stype Buttons
     text-align: center;
     text-transform: uppercase;
 }
-.login p {
+.login .other {
     font-size: 14px;
     color: #999;
     line-height: 1.8em;
-    margin: 0;
-    text-align: center;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.login .explain {
+	font-size: 15px;
+    color: #999;
+	line-height: 1.8em;
+	text-align: center;
+	margin-top: 20px;
+}
+.login p .add-account {
+	color: #2a97ee;
+	font-size: 16px;
 }
  h3.title:before, h3.title:after, .login h3:before, .login h3:after, .register h3:before, .register h3:after {
     position: absolute;
@@ -1279,7 +1291,7 @@ h3.title::after, .login h3:after {
 	background:#fff;
 	margin:3em auto 0;
 }
-.login-form-grids input[type="number"],.login-form-grids input.code,.login-form-grids input[type="text"]{
+.login-form-grids input[type="number"],.login-form-grids input.code, .login-form-grids input.password,.login-form-grids input[type="text"]{
 	outline: none;
     border: 1px solid #DBDBDB;
     padding: 10px 10px 10px 45px;
@@ -1289,7 +1301,7 @@ h3.title::after, .login h3:after {
     width: 100%;
 }
 .login-form-grids input.code{
-	width: 69%;
+	width: 75%;
 	display: inline-block;
 }
 .login-form-grids .btn{
@@ -1297,15 +1309,26 @@ h3.title::after, .login h3:after {
     font-size: 0.8em;
     color: #fff;
     display: inline-block;
-    width: 30%;
-    background: #FFC229;
+	width: 30%;
+	border-radius: 4px !important;
+	background: #2a97ee;
+	margin-bottom: 10px;
+}
+.login-form-grids .whitebtn {
+	width: 20%;
+	padding: 8px;
+	font-size: 0.8em;
+	border: 1px solid #BBBBBB;
+	border-radius: 4px !important;
+	margin-left: 5px;
+	color: #101010;
+	background-color: #fff;
 }
 .login-form-grids input[type="number"]{
 	background:url(../img/img-sp.png) no-repeat 5px -260px #fff;
 }
-.login-form-grids input.code{
-	background:url(../img/img-sp.png) no-repeat 5px -220px #fff;
-	margin:1em 0 0;
+.login-form-grids input.code, .login-form-grids input.password{
+	background:url(../img/img-sp.png) no-repeat 5px -223px #fff;
 }
 .forgot {
     margin: 1.5em 0 0;

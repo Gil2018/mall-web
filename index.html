@@ -96,17 +96,20 @@
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40 ">
           <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-4">
+          <div class="sidebar col-md-2 col-sm-4">
             <ul class="list-group margin-bottom-25 sidebar-menu" id="sidebar-menu">
 
             </ul>
           </div>
           <!-- END SIDEBAR -->
           <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-8">
-            <h2>推荐</h2>
-            <div class="owl-carousel owl-carousel3 owl-theme owl-loaded" id="owl-carousel3">
-
+          <div class="col-md-10 col-sm-8">
+            <h2>FASHION COLLECTION</h2>
+            <div class="owl-carousel owl-carousel2 owl-theme owl-loaded">
+              <div class="product-item"><img src="./assets/pages/img/products/fashion1.jpg" alt="fashion"
+                  class="img-responsive"></div>
+              <div class="product-item"><img src="./assets/pages/img/products/fashion2.jpg" alt="fashion"
+                  class="img-responsive"></div>
             </div>
           </div>
           <!-- END CONTENT -->
@@ -121,6 +124,7 @@
 
     <div id="product_det" class="#product_det" style="width: 700px;"></div>
 
+    <!-- 轮播图模板 -->
     <script type="text/template" id="banner">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -133,7 +137,7 @@
         <!-- First slide -->
         {{each bannerList banner i}}
         <div class="item"
-          style="background: url({{banner.url}});background-size: cover;background-position: center center;">
+          style="background: url({{banner.url}});background-size: cover;background-position: center;">
           <div class="container">
             <!-- <div class="carousel-position-four text-center">
                 <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase"
@@ -158,36 +162,38 @@
       </a>
     </script>
 
+    <!-- 产品模板 -->
     <script type="text/template" id="product_item">
       {{each list item i}}
-          <!-- PRODUCT ITEM START -->
+        <!-- PRODUCT ITEM START -->
+        <div>
+          <div class="product-item">
+            <div class="pi-img-wrapper">
+              <img src="{{item.picUrl}}" class="img-responsive" alt="{{item.name}}">
               <div>
-                  <div class="product-item">
-                    <div class="pi-img-wrapper">
-                      <img src="{{item.picUrl}}" class="img-responsive" alt="{{item.name}}">
-                      <div>
-                        <a href="{{item.picUrl}}" class="btn btn-default fancybox-button">放大</a>
-                        <a href="#product_det" class="btn btn-default fancybox-fast-view" onclick="viewDetail(this)">查看
-                          <span style="display: none">{{item.id}}</span>
-                        </a>
-                      </div>
-                    </div>
-                    <h3><a href="item.html?product_id={{item.id}}">{{item.name}}</a></h3>
-                    <div class="pi-price">¥{{item.retailPrice}}</div>
-                    <a href="javascript:void(0);" class="btn btn-default add2cart" onclick="add2Cart(this)">加入购物车
-                        <span style="display: none">{{item}}</span>
-                    </a>
-                    {{if list.length === 3}}
-                    <div class="sticker sticker-sale"></div>
-                    {{else if  list.length === 5}}
-                    <div class="sticker sticker-new"></div>
-                    {{/if}}
-                  </div>
-                </div>
-          <!-- PRODUCT ITEM END -->
-          {{/each}}
-  </script>
+                <a href="{{item.picUrl}}" class="btn btn-default fancybox-button">放大</a>
+                <a href="#product_det" class="btn btn-default fancybox-fast-view" onclick="viewDetail(this)">查看
+                  <span style="display: none">{{item.id}}</span>
+                </a>
+              </div>
+            </div>
+            <h3><a href="item.html?product_id={{item.id}}">{{item.name}}</a></h3>
+            <div class="pi-price">¥{{item.retailPrice}}</div>
+            <a href="javascript:void(0);" class="btn btn-default add2cart" onclick="add2Cart(this)">加入购物车
+              <span style="display: none">{{item}}</span>
+            </a>
+            <!-- {{if list.length === 3}}
+            <div class="sticker sticker-sale"></div>
+            {{else if  list.length === 5}}
+            <div class="sticker sticker-new"></div>
+            {{/if}} -->
+          </div>
+        </div>
+        <!-- PRODUCT ITEM END -->
+      {{/each}}
+    </script>
 
+    <!-- 产品详情模板 -->
     <script type="text/template" id="product_detail">
       <!-- PRODUCT ITEM START -->
       <div class="product-page product-pop-up">
@@ -248,26 +254,28 @@
       <!-- PRODUCT ITEM END -->
     </script>
 
+    <!-- 分类列表模板 -->
     <script type="text/template" id="category_menu">
       <!-- END TOP SEARCH -->
       {{each categoryList item i}}
       {{if item.childList.length > 0}}
       <li class="list-group-item clearfix dropdown">
-        <a href="/product-list.html">
-          <i class="fa fa-angle-right"></i>
-          {{item.name}}
-        </a>
+        <a href="/product-list.html"> {{item.name}} <img src="./assets/pages/img/icon_right.svg" alt={{item.name}}
+            class="img-responsive"> </a>
         <ul class="dropdown-menu">
           {{each item.childList value i}}
           <li class="list-group-item dropdown clearfix">
-            <a href="/product-list.html"><i class="fa fa-angle-right"></i> {{value.name}} </a>
+            <a href="/product-list.html"> {{value.name}} <img src="./assets/pages/img/icon_right.svg" alt={{item.name}}
+                class="img-responsive"></a>
           </li>
         </ul>
         {{/each}}
       </li>
       {{else}}
-      <li class="list-group-item clearfix"><a href="product-list.html"><i class="fa fa-angle-right"></i>
-          {{item.name}}</a></li>
+      <li class="list-group-item clearfix">
+        <a href="product-list.html"> {{item.name}} <img src="./assets/pages/img/icon_right.svg" alt={{item.name}}
+            class="img-responsive"></a>
+      </li>
       {{/if}}
       {{/each}}
     </script>
