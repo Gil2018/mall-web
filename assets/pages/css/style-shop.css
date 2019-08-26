@@ -1325,10 +1325,10 @@ h3.title::after, .login h3:after {
 	background-color: #fff;
 }
 .login-form-grids input[type="number"]{
-	background:url(../img/img-sp.png) no-repeat 5px -260px #fff;
+	background:url(../img/img-sp.png) no-repeat 5px -261px #fff;
 }
 .login-form-grids input.code, .login-form-grids input.password{
-	background:url(../img/img-sp.png) no-repeat 5px -223px #fff;
+	background:url(../img/img-sp.png) no-repeat 5px -221px #fff;
 }
 .forgot {
     margin: 1.5em 0 0;

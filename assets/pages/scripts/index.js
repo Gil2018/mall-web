@@ -3,6 +3,7 @@ $(function () {
 
     getBannerList()
     getRendom(5, $('#owl-carousel5'))
+    getRendom(4, $('.owl-carousel4'))
     getRendom(3, $('#owl-carousel3'))
     getCategoryList()
 

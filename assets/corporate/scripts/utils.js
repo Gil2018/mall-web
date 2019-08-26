@@ -129,6 +129,9 @@ function getRendom(num, ele) {
       res.data[3].picUrl = './assets/pages/img/products/product4.png'
       res.data[4].picUrl = './assets/pages/img/products/product1.png'
     }
+    if (res.data.length === 4) {
+      res.data[3].picUrl = './assets/pages/img/products/product4.png'
+    }
     res.data.forEach(item => {
       if (item.id === 5) {
         item.name = '秋季新款卫衣'
@@ -172,19 +175,19 @@ function getCategoryList() {
     res.data = [{
       name: '爆款榜单',
       childList: ''
-    },{
+    }, {
       name: '上衣T恤',
       childList: ''
-    },{
+    }, {
       name: '长裤/短裤',
       childList: ''
-    },{
+    }, {
       name: '休闲卫衣',
       childList: ''
-    },{
+    }, {
       name: '外套夹克',
       childList: ''
-    },{
+    }, {
       name: '配件',
       childList: ''
     }]

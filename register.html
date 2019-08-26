@@ -73,23 +73,23 @@
                 <!-- login -->
                 <div class="login">
                     <h3 class="animated wow zoomIn" data-wow-delay=".5s">会员注册</h3>
-                    <p class="est animated wow zoomIn explain" data-wow-delay=".5s">我们将通过短信向您发送一条一次性验证码, 以验证你的号码</p>
+                    <p class="est animated wow zoomIn explain" data-wow-delay=".5s">我们将发送电子邮件至您的邮箱, 请单击包含的链接以验证您的电子邮箱地址</p>
                     <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
                         <form onsubmit="return false" action="#" method="post">
                             <div class="form-group">
-                                <label for="mobile">手机号码</label>
-                                <input type="number" id="mobile" placeholder="" required=" " />
+                                <label for="mobile">电子邮件</label>
+                                <input type="text" id="mobile" placeholder="" required=" " />
                             </div>
                             <div class="form-group">
-                                <label for="login_code" style="display: block;">验证码</label>
-                                <input type="password" class="code form-control" id="login_code" placeholder="">
-                                <a class="whitebtn" href="javascript:void(0);" id="sendMobileCode">
+                                <label for="login_code" style="display: block;">密码</label>
+                                <input type="number" class="form-control" id="login_code" placeholder="">
+                                <!-- <a class="whitebtn" href="javascript:void(0);" id="sendMobileCode">
                                     <span id="dyMobileButton">发送验证码</span>
-                                </a>
+                                </a> -->
                             </div>
-                            <p class="animated wow slideInUp" data-wow-delay=".5s">
+                            <!-- <p class="animated wow slideInUp" data-wow-delay=".5s">
                                 <a href="javascript:void(0);" onclick="switchingMode(this)" id="mode" class="add-account">使用电子邮箱注册</a>
-                            </p>
+                            </p> -->
                             <div style="text-align: right;">
                                 <button type="submit" id="login_btn" class="btn btn-default">注册</button>
                                 <p><a href="./login.html">已是会员? 立即登录</a></p>
